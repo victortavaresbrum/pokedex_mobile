@@ -8,9 +8,9 @@ class PokemonTheme {
     textTheme: const TextTheme(
       bodyText2: TextStyle(
         fontSize: 16
-      )
-    )
+      ),
+      
+    ),
 
   );
-
 }

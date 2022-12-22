@@ -13,6 +13,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+
   
   final pokemonRepository = PokemonRepository();
   ThemeData theme = PokemonTheme.theme;
@@ -25,10 +26,17 @@ class _HomeScreenState extends State<HomeScreen> {
       home: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.red,
-          leading: const CircleAvatar(
-            backgroundColor: Colors.transparent,
-            backgroundImage: NetworkImage('https://mlohrktvfr9b.i.optimole.com/cb:tVDx~16b5e/w:702/h:702/q:mauto/https://www.nerdstickers.com.br/wp-content/uploads/2020/11/adesivo-Pokedex-Air-Force-1-danilo-the-hype-nerd-stickers.png'),),
-          title: const Text('PokeDex VH'),
+          title: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: const [
+               CircleAvatar(
+                backgroundColor: Colors.transparent,
+                backgroundImage: NetworkImage(
+                    'https://mlohrktvfr9b.i.optimole.com/cb:tVDx~16b5e/w:702/h:702/q:mauto/https://www.nerdstickers.com.br/wp-content/uploads/2020/11/adesivo-Pokedex-Air-Force-1-danilo-the-hype-nerd-stickers.png'),
+              ),
+               Text('PokeDex VH'),
+            ],
+          ),
           centerTitle: true,
         ),
         body: ListView.builder(
@@ -37,7 +45,7 @@ class _HomeScreenState extends State<HomeScreen> {
               return Padding(
                 padding: const EdgeInsets.all(5.0),
                 child: PokemonList(
-                  future: pokemonRepository.getPokemon(index+1),
+                  future: pokemonRepository.getPokemon(index + 1),
                 ),
               );
             }),

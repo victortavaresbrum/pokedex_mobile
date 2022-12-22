@@ -6,6 +6,8 @@ import 'package:pokemon_api_app/repository/pokemon_repository.dart';
 import '../models/pokemon_model.dart';
 import 'package:string_capitalize/string_capitalize.dart';
 
+import '../screens/pokemon_screen.dart';
+
 class PokemonList extends StatelessWidget {
   PokemonList({
     Key? key,
@@ -38,8 +40,15 @@ class PokemonList extends StatelessWidget {
                     offset: Offset.fromDirection(0, 0))
               ]),
           height: 100,
-          child: GestureDetector(
-            onTap: () {},
+          child: InkWell(
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return PokemonScreen(
+                  pokemonImg: '${snapshot.data?[0].pokemonImg}',
+                  pokemonName: '${snapshot.data?[0].pokemonName}',
+                );
+              },));
+            },
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [

@@ -1,7 +1,4 @@
-
-
 import 'package:dio/dio.dart';
-import 'package:flutter/cupertino.dart';
 import '../models/pokemon_model.dart';
 
 class PokemonRepository {
@@ -10,7 +7,7 @@ class PokemonRepository {
 
   Future<List<PokemonModel>> getPokemon(index) async {
   
-  try{   final List<PokemonModel> pokemonList = [];
+  try {   final List<PokemonModel> pokemonList = [];
 
     final apiUrl = 'https://pokeapi.co/api/v2/pokemon/$index';
 
@@ -25,8 +22,6 @@ class PokemonRepository {
     final pokemonType = (response.data["types"] as List).map((e) => getTypes(e["type"]["name"])).toList();
 
 
-    print('${response.data} GETPOKEMON');    
-
     pokemonList.add(PokemonModel(
       pokemonImg: getPokemonImg,
       pokemonName: getPokemonName,
@@ -34,13 +29,6 @@ class PokemonRepository {
       pokemonType: pokemonType
     ));
 
-      // pokemonList.forEach((element) { 
-      //   debugPrint('${element.pokemonId}');
-      //   debugPrint('${element.pokemonImg}');
-      //   debugPrint('${element.pokemonName}');
-      //   debugPrint('${element.pokemonType}');
-      //   debugPrint('${element.pokemonType2}');
-      // });
 
     return pokemonList;
   } catch (e){
