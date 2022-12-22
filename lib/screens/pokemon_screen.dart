@@ -19,18 +19,23 @@ class PokemonScreen extends StatelessWidget {
           Stack(
         
             children: [
-              Center(
-                  child: Image.network(
-                pokemonImg,
-                scale: 0.3,
-              )),
+               Image.network('https://i.pinimg.com/originals/f6/a1/8a/f6a18ac56651ce4f9ca7e0230706a0b6.png'),
+              Padding(
+                padding: const EdgeInsets.only(top: 30.0),
+                child: Center(
+                    child: Image.network(
+                  pokemonImg,
+                  scale: 0.3,
+                )),
+              ),
               IconButton(
                 onPressed: () {
                   Navigator.pop(context);
                 },
                 icon: const Icon(Icons.arrow_back),
                 color: Colors.red,
-              )
+              ),
+             
             ],
           ),
           Center(
@@ -38,6 +43,17 @@ class PokemonScreen extends StatelessWidget {
               pokemonName.capitalize(),
               style: const TextStyle(
                 fontWeight: FontWeight.w800,
+                fontSize: 36,
+                color: Colors.yellow,
+                shadows: [
+                  Shadow(
+                    color: Colors.black,
+                    offset: Offset(1, 1),
+                    blurRadius: 20,
+
+                  )
+                ]
+
 
               ),
             ),

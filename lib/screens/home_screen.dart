@@ -14,7 +14,7 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
 
-  
+
   final pokemonRepository = PokemonRepository();
   ThemeData theme = PokemonTheme.theme;
 
@@ -28,13 +28,15 @@ class _HomeScreenState extends State<HomeScreen> {
           backgroundColor: Colors.red,
           title: Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
-               CircleAvatar(
+            children:  [
+              
+               const CircleAvatar(
                 backgroundColor: Colors.transparent,
                 backgroundImage: NetworkImage(
                     'https://mlohrktvfr9b.i.optimole.com/cb:tVDx~16b5e/w:702/h:702/q:mauto/https://www.nerdstickers.com.br/wp-content/uploads/2020/11/adesivo-Pokedex-Air-Force-1-danilo-the-hype-nerd-stickers.png'),
               ),
-               Text('PokeDex VH'),
+              Image.network('https://logosmarcas.net/wp-content/uploads/2020/05/Pokemon-Logo.png',width: 100,),
+               
             ],
           ),
           centerTitle: true,
